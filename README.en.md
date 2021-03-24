@@ -1,7 +1,7 @@
 # libmetal
 
 #### Description
-Bare metal interaction APIs
+An abstraction layer across user-space Linux, baremetal, and RTOS environments.
 
 #### Software Architecture
 Software architecture description
