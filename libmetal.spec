@@ -1,6 +1,6 @@
 Name:		libmetal
 Version:	2020.10.0
-Release:	1%{?dist}
+Release:	2
 Summary:	An abstraction layer across user-space Linux, baremetal, and RTOS environments 
 
 License:	BSD
@@ -68,6 +68,9 @@ cd build
 
 
 %changelog
+* Tue Dec 14 2021 konglidong <konglidong@uniontech.com> - 2020.10.0-2
+- delete %dist
+
 * Tue Jan 26 2021 Zhenyu Zheng <zheng.zhenyu@outlook.colm> - 2020.10.0-1
 - Initial commit for openEuler
 
