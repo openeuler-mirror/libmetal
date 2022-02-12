@@ -1,7 +1,7 @@
 Name:		libmetal
-Version:	2020.10.0
-Release:	2
-Summary:	An abstraction layer across user-space Linux, baremetal, and RTOS environments 
+Version:	2021.10.0
+Release:	3
+Summary:	An abstraction layer across user-space Linux, baremetal, and RTOS environments
 
 License:	BSD
 URL:		https://github.com/OpenAMP/libmetal/
@@ -40,7 +40,7 @@ baremetal, and RTOS environments.
 %build
 mkdir build
 cd build
-%cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir} -DWITH_STATIC_LIB=OFF ..
+%cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir} -DWITH_STATIC_LIB=OFF -DWITH_EXAMPLES=OFF -DWITH_TEST=OFF ..
 
 
 %install
@@ -53,9 +53,10 @@ cd build
 %files
 %license LICENSE.md
 %doc README.md
-%{_bindir}/test-metal-shared
-%{_libdir}/libmetal.so.0
-%{_libdir}/libmetal.so.0.1.0
+%{_libdir}/libmetal.so.1
+%{_libdir}/libmetal.so.1.1.0
+# test-metal-shared is not used.
+%exclude %{_bindir}/test-metal-shared
 
 %files devel
 %{_libdir}/libmetal.so
@@ -68,6 +69,9 @@ cd build
 
 
 %changelog
+* Sat Feb 12 2022 Wayne Ren <renwei41@huawei.com> - 2021.10.0-1
+- update to 2021.10.0
+
 * Tue Dec 14 2021 konglidong <konglidong@uniontech.com> - 2020.10.0-2
 - delete %dist
 
