@@ -1,6 +1,6 @@
 Name:		libmetal
-Version:	2021.10.0
-Release:	3
+Version:	2022.04.0
+Release:	1
 Summary:	An abstraction layer across user-space Linux, baremetal, and RTOS environments
 
 License:	BSD
@@ -54,7 +54,7 @@ cd build
 %license LICENSE.md
 %doc README.md
 %{_libdir}/libmetal.so.1
-%{_libdir}/libmetal.so.1.1.0
+%{_libdir}/libmetal.so.1.2.0
 # test-metal-shared is not used.
 %exclude %{_bindir}/test-metal-shared
 
@@ -69,6 +69,9 @@ cd build
 
 
 %changelog
+* Thu Jun 30 2022 luojects <luoyonglun@huawei.com> - 2022.04.0-1
+- update to 2022.04.0
+
 * Sat Feb 12 2022 Wayne Ren <renwei41@huawei.com> - 2021.10.0-1
 - update to 2021.10.0
 
