@@ -1,6 +1,6 @@
 Name:		libmetal
 Version:	2022.04.0
-Release:	1
+Release:	2
 Summary:	An abstraction layer across user-space Linux, baremetal, and RTOS environments
 
 License:	BSD
@@ -40,12 +40,16 @@ baremetal, and RTOS environments.
 %build
 mkdir build
 cd build
-%cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir} -DWITH_STATIC_LIB=OFF -DWITH_EXAMPLES=OFF -DWITH_TEST=OFF ..
+%cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir} -DWITH_STATIC_LIB=OFF -DWITH_EXAMPLES=ON ..
 
 
 %install
 cd build
 %make_install
+for f in `find %{buildroot}/%{_bindir}/ -type f -regex ".*-shared*"`; do
+    newf="`echo ${f} | sed 's/-shared*$//g'`"
+    mv "${f}" "${newf}"
+done
 
 
 %ldconfig_scriptlets
@@ -53,10 +57,8 @@ cd build
 %files
 %license LICENSE.md
 %doc README.md
-%{_libdir}/libmetal.so.1
-%{_libdir}/libmetal.so.1.2.0
-# test-metal-shared is not used.
-%exclude %{_bindir}/test-metal-shared
+%{_libdir}/*.so*
+%{_bindir}/test-*
 
 %files devel
 %{_libdir}/libmetal.so
@@ -69,6 +71,9 @@ cd build
 
 
 %changelog
+* Fri Aug 5 2022 zhangziyang <zhangziyang1@huawei.com> - 2022.04.0-2
+- synchronous embedded compilation and packaging options
+
 * Thu Jun 30 2022 luojects <luoyonglun@huawei.com> - 2022.04.0-1
 - update to 2022.04.0
 
