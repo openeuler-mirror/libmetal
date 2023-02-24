@@ -1,11 +1,11 @@
 Name:		libmetal
-Version:	2022.04.0
-Release:	2
+Version:	2022.10.0
+Release:	3
 Summary:	An abstraction layer across user-space Linux, baremetal, and RTOS environments
 
 License:	BSD
 URL:		https://github.com/OpenAMP/libmetal/
-Source0:	https://github.com/OpenAMP/libmetal/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/OpenAMP/libmetal/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 
 Patch0:		libmetal-add-additional-arches.patch
 
@@ -71,6 +71,9 @@ done
 
 
 %changelog
+* Mon Feb 27 2023 hanzongcheng <hanzongcheng@huawei.com> - 2022.10.0-3
+- update to 2022.10.0
+
 * Fri Aug 5 2022 zhangziyang <zhangziyang1@huawei.com> - 2022.04.0-2
 - synchronous embedded compilation and packaging options
 
