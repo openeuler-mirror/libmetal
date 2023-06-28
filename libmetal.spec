@@ -1,6 +1,6 @@
 Name:		libmetal
 Version:	2022.10.0
-Release:	3
+Release:	4
 Summary:	An abstraction layer across user-space Linux, baremetal, and RTOS environments
 
 License:	BSD
@@ -8,7 +8,9 @@ URL:		https://github.com/OpenAMP/libmetal/
 Source0:	https://github.com/OpenAMP/libmetal/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 
 Patch0:		libmetal-add-additional-arches.patch
-
+%ifarch riscv64
+Patch1:  add-riscv-support.patch
+$endif
 BuildRequires:	cmake
 BuildRequires:	doxygen
 BuildRequires:	gcc
@@ -71,6 +73,9 @@ done
 
 
 %changelog
+* Mon Jun 19 2023 zhangxiang <zhangxiang@iscas.ac.cn> - 2022.10.0-4
+- add riscv support
+
 * Mon Feb 27 2023 hanzongcheng <hanzongcheng@huawei.com> - 2022.10.0-3
 - update to 2022.10.0
 
