@@ -10,7 +10,7 @@ Source0:	https://github.com/OpenAMP/libmetal/archive/refs/tags/v%{version}/%{nam
 Patch0:		libmetal-add-additional-arches.patch
 %ifarch riscv64
 Patch1:  add-riscv-support.patch
-$endif
+%endif
 BuildRequires:	cmake
 BuildRequires:	doxygen
 BuildRequires:	gcc
